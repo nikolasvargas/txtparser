@@ -1,0 +1,62 @@
+Sistema que importa lotes de arquivos .dat.
+O sistema deve conseguir importar lotes de arquivo, ler, analisar e depois devolver um relatório dos dados coletados.
+Há 3 tipos de dados diferentes no mesmo arquivo, para cada tipo há 1 layout diferente também.
+- os itens são:
+    - dados do vendedor
+      - vendedor tem o id 001 e a linha tem o seguinte formato. 001çCPFçNameçSalary
+    - dados do cliente
+      - cliente tem o id 001 e a linha tem o seguinte formato. 002çCNPJçNameçBusinessArea
+    - dados da venda
+      - dados da venda tem o id 003 e a linha tem o seguinte formato. 003çSale IDç[Item ID-Item Quantity-Item Price]çSalesman name
+      - dentro da linha de venda existe a linha de itens, que está envolta entre colchetes [].
+
+Dados de Exemplo
+O seguinte é um exemplo dos dados que o sistema deve ser capaz de ler.
+001ç1234567891234çPedroç50000
+001ç3245678865434çPauloç40000.99
+002ç2345675434544345çJose da SilvaçRural
+002ç2345675433444345çEduardo PereiraçRural
+003ç10ç[1-10-100,2-30-2.50,3-40-3.10]çPedro
+003ç08ç[1-34-10,2-33-1.50,3-40-0.10]çPaulo
+
+- O sistema deve ler somente arquivos .dat
+- Após processar os arquivos no diretório padrão de entrada, para cada arquivo de entrada o sistema deve criar um arquivo dentro do diretório de saída padrão, que deve ser <homepath>/data/out.
+
+- O conteúdo do arquivo de saída deve resumir os seguintes dados
+    - ● Quantidade de clientes no arquivo de entrada
+    - ● Quantidade de vendedor no arquivo de entrada
+    - ● ID da venda mais cara
+    - ● O pior vendedor
+
+- O arquivo de saída padrão deve se chamar {flat_file_name}.done.dat;
+
+Todo:
+  Criar diretórios de entrada dos arquivos e de saída:
+    ✔ Criar diretório de entrada <homepath>/data/in @done(19-09-13 19:08)
+    ✔ Criar diretório de saída <homepath>/data/out @done(19-09-13 19:08)
+    ✔ Criar unittest que testa se os diretórios existem após a execução dos métodos @done(19-09-13 19:08)
+  Criar classes que representam cada entidade:
+    namedtuple ou dataclass de:
+        ✔ customer @done(19-09-15 04:01)
+        ✔ seller @done(19-09-15 04:01)
+        ☐ orders
+    ☐ função para retornar ID da venda mais cara
+    ☐ função para retornar o pior vendedor
+    ☐ testar instanciar as classes
+  Parser:
+    ☐ Criar parser com 1 tipo de delimitador somente
+    ☐ Criar arquivo de config para possibilitar configurar deimilitadores e frequência de busca no diretório
+    ☐ Parser deve retornar a quantidade de clientes e vendedores nos arquivos do diretório de entrada (??)
+  Para cada arquivo .dat processado, uma arquivo.done.dat deve ser gerado:
+    ☐ função para processar os dados parseados
+    ☐ função para criar arquivo e devolver os dados processados
+  Tratamentos:
+    ☐ Arquivos sem a extensão .dat devem ser ignorados
+    ☐ Tratamento para arquivos que são .dat, mas sem nenhuma row
+    ☐ Tratamento de erros para arquivos que não seguirem o padrão de linha formatada
+  Finals:
+    ☐ typehint
+    ☐ verificar se utilizou principais features do python3
+    ☐ os data models foram totalmente utilizados?
+    ☐ dataclasses
+    ☐ customizar output do terminal? tipos de logging/colors e etc
