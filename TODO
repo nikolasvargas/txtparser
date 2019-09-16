@@ -5,7 +5,7 @@ Há 3 tipos de dados diferentes no mesmo arquivo, para cada tipo há 1 layout di
     - dados do vendedor
       - vendedor tem o id 001 e a linha tem o seguinte formato. 001çCPFçNameçSalary
     - dados do cliente
-      - cliente tem o id 001 e a linha tem o seguinte formato. 002çCNPJçNameçBusinessArea
+      - cliente tem o id 002 e a linha tem o seguinte formato. 002çCNPJçNameçBusinessArea
     - dados da venda
       - dados da venda tem o id 003 e a linha tem o seguinte formato. 003çSale IDç[Item ID-Item Quantity-Item Price]çSalesman name
       - dentro da linha de venda existe a linha de itens, que está envolta entre colchetes [].
@@ -39,19 +39,20 @@ Todo:
     namedtuple ou dataclass de:
         ✔ customer @done(19-09-15 04:01)
         ✔ seller @done(19-09-15 04:01)
-        ☐ orders
+        ✔ orders @done(19-09-15 17:51)
     ☐ função para retornar ID da venda mais cara
     ☐ função para retornar o pior vendedor
     ☐ testar instanciar as classes
   Parser:
-    ☐ Criar parser com 1 tipo de delimitador somente
+    ✔ Criar parser com 1 tipo de delimitador somente @done(19-09-16 00:50)
     ☐ Criar arquivo de config para possibilitar configurar deimilitadores e frequência de busca no diretório
     ☐ Parser deve retornar a quantidade de clientes e vendedores nos arquivos do diretório de entrada (??)
+    ✘ Talvez possam haver também vendas duplicadas... @cancelled(19-09-16 01:43)
   Para cada arquivo .dat processado, uma arquivo.done.dat deve ser gerado:
     ☐ função para processar os dados parseados
     ☐ função para criar arquivo e devolver os dados processados
   Tratamentos:
-    ☐ Arquivos sem a extensão .dat devem ser ignorados
+    ✔ Arquivos sem a extensão .dat devem ser ignorados @done(19-09-16 01:02)
     ☐ Tratamento para arquivos que são .dat, mas sem nenhuma row
     ☐ Tratamento de erros para arquivos que não seguirem o padrão de linha formatada
   Finals:
