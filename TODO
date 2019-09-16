@@ -40,24 +40,26 @@ Todo:
         ✔ customer @done(19-09-15 04:01)
         ✔ seller @done(19-09-15 04:01)
         ✔ orders @done(19-09-15 17:51)
-    ☐ função para retornar ID da venda mais cara
+    ✔ função para retornar ID da venda mais cara @done(19-09-16 14:31)
     ☐ função para retornar o pior vendedor
     ☐ testar instanciar as classes
   Parser:
     ✔ Criar parser com 1 tipo de delimitador somente @done(19-09-16 00:50)
     ☐ Criar arquivo de config para possibilitar configurar deimilitadores e frequência de busca no diretório
-    ☐ Parser deve retornar a quantidade de clientes e vendedores nos arquivos do diretório de entrada (??)
+    ✔ Parser deve retornar a quantidade de clientes e vendedores nos arquivos do diretório de entrada (??) @done(19-09-16 14:30)
     ✘ Talvez possam haver também vendas duplicadas... @cancelled(19-09-16 01:43)
   Para cada arquivo .dat processado, uma arquivo.done.dat deve ser gerado:
-    ☐ função para processar os dados parseados
-    ☐ função para criar arquivo e devolver os dados processados
+    ✔ função para processar os dados parseados @done(19-09-16 14:30)
+    ✔ função para criar arquivo e armazenar os dados processados @done(19-09-16 16:30)
   Tratamentos:
     ✔ Arquivos sem a extensão .dat devem ser ignorados @done(19-09-16 01:02)
     ☐ Tratamento para arquivos que são .dat, mas sem nenhuma row
     ☐ Tratamento de erros para arquivos que não seguirem o padrão de linha formatada
+    ☐ Tratar como único através do ID da venda
+        intencionalmento, ou simulando alguma inconsistência no banco de dados, uma venda pode vir com o ID duplicado,
+        mas com dados internos diferente... o que fazer nesse caso? remover os ID's duplicados ou
+        expor devido a diferença entre os outros dados?
   Finals:
-    ☐ typehint
-    ☐ verificar se utilizou principais features do python3
-    ☐ os data models foram totalmente utilizados?
-    ☐ dataclasses
-    ☐ customizar output do terminal? tipos de logging/colors e etc
+    ✔ typehint @done(19-09-16 16:31)
+    ✘ dataclasses @cancelled(19-09-16 16:31)
+    ☐ terminal output colorized
