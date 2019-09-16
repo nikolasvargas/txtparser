@@ -26,20 +26,3 @@ def _create_dir(dir_name: str) -> (str, None):
         return False
 
     os.makedirs(path)
-
-
-def create_file(filename: str, data: str):
-    """
-    Cria um arquivo {filename}.done.dat no OUTPUT_DIRECTORY definido
-    Escreve no arquivo os dados que foram passados por argumenot
-    """
-    path: str = Path.home() / OUTPUT_DIRECTORY
-
-    if path.exists():
-        fullpath: str = f"{path}/{filename}.done.dat"
-
-    create_outpath()
-    fullpath: str = f"{path}/{filename}.done.dat"
-
-    with open(fullpath, 'w') as new_file:
-        new_file.write(str(data))
