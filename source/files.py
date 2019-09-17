@@ -1,8 +1,9 @@
 import logging
 
 from glob import glob
+from os import path
 from pathlib import Path
-from typing import BinaryIO, List, Set, AnyStr
+from typing import BinaryIO, List, Set, AnyStr, Optional
 
 from directory import INPUT_DIRECTORY, OUTPUT_DIRECTORY
 from parser import parse_dat_file
@@ -15,11 +16,18 @@ FILE_EXTENSION: str = '.dat'
 logging.getLogger().setLevel(logging.INFO)
 
 
-def search_batch_files() -> List[str]:
+def search_batch_files(filename_list: Optional[List[str]] = []) -> List[str]:
     """
     Return list with *.dat files found
     """
-    logging.info(f"loading all .dat files from {INPUT_PATH}")
+    if bool(len(filename_list)):
+        # we just want .dat(FILE_EXTENSION) files
+        files: List = [f for f in filename_list if path.splitext(f)[1] == FILE_EXTENSION]
+        are_valid_files: bool = bool(len(files))
+
+        if are_valid_files:
+            return [f for f in files]
+
     return glob(f"{INPUT_PATH}/*{FILE_EXTENSION}")
 
 
@@ -34,9 +42,9 @@ def read_large_file(file_object: BinaryIO):
         yield data
 
 
-def process_file():
+def process_file(files: Optional[List[str]] = []):
     filename: str = str()
-    for pathfile in search_batch_files():
+    for pathfile in search_batch_files(files):
         dataset: Set = set()
         try:
             with open(pathfile) as file_handler:
