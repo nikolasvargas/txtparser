@@ -1,7 +1,7 @@
 import os
 import logging
 from pathlib import Path
-from typing import Callable
+from typing import Callable, Optional
 
 logging.basicConfig(format='%(levelname)s: %(message)s')
 
@@ -17,7 +17,7 @@ def create_outpath() -> Callable:
     return _create_dir(OUTPUT_DIRECTORY)
 
 
-def _create_dir(dir_name: str) -> (bool, None):
+def _create_dir(dir_name: str) -> Optional[bool]:
     path: str = Path.home() / dir_name
 
     if path.exists():
