@@ -1,6 +1,7 @@
 import os
 import logging
 from pathlib import Path
+from shutil import copy2
 from typing import Callable, Optional
 
 logging.basicConfig(format='%(levelname)s: %(message)s')
@@ -9,8 +10,10 @@ INPUT_DIRECTORY: str = 'data/in'
 OUTPUT_DIRECTORY: str = 'data/out'
 
 
-def create_inpath() -> Callable:
-    return _create_dir(INPUT_DIRECTORY)
+def create_inpath():
+    path: str = Path.home() / INPUT_DIRECTORY
+    copy2('example.dat', path)
+    _create_dir(INPUT_DIRECTORY)
 
 
 def create_outpath() -> Callable:

@@ -11,7 +11,7 @@ from source.parser import get_higher_sales_value, get_higher_sales_value_per_sel
 class TestDirectory(unittest.TestCase):
     def setUp(self):
         self.home_path = Path.home()
-        self.path_to_test = self.home_path / 'test'
+        self.path_to_test = self.home_path / '01test01'
 
     def tearDown(self):
         os.rmdir(self.path_to_test)
