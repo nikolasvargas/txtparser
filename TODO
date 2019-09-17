@@ -46,7 +46,7 @@ Todo:
     ✘ testar instanciar as classes @cancelled(19-09-16 23:23)
   Parser:
     ✔ Criar parser com 1 tipo de delimitador somente @done(19-09-16 00:50)
-    ☐ Criar arquivo de config para possibilitar configurar deimilitadores e frequência de busca no diretório
+    ✘ Criar arquivo de config para possibilitar configurar deimilitadores e frequência de busca no diretório @cancelled(19-09-17 12:01)
     ✔ Parser deve retornar a quantidade de clientes e vendedores nos arquivos do diretório de entrada (??) @done(19-09-16 14:30)
     ✘ Talvez possam haver também vendas duplicadas... @cancelled(19-09-16 01:43)
   Para cada arquivo .dat processado, uma arquivo.done.dat deve ser gerado:
