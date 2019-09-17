@@ -20,7 +20,8 @@ O seguinte é um exemplo dos dados que o sistema deve ser capaz de ler.
 003ç08ç[1-34-10,2-33-1.50,3-40-0.10]çPaulo
 
 - O sistema deve ler somente arquivos .dat
-- Após processar os arquivos no diretório padrão de entrada, para cada arquivo de entrada o sistema deve criar um arquivo dentro do diretório de saída padrão, que deve ser <homepath>/data/out.
+- Após processar os arquivos no diretório padrão de entrada,
+- para cada arquivo de entrada o sistema deve criar um arquivo dentro do diretório de saída padrão, que deve ser <homepath>/data/out.
 
 - O conteúdo do arquivo de saída deve resumir os seguintes dados
     - ● Quantidade de clientes no arquivo de entrada
@@ -41,8 +42,8 @@ Todo:
         ✔ seller @done(19-09-15 04:01)
         ✔ orders @done(19-09-15 17:51)
     ✔ função para retornar ID da venda mais cara @done(19-09-16 14:31)
-    ☐ função para retornar o pior vendedor
-    ☐ testar instanciar as classes
+    ✔ função para retornar o pior vendedor @done(19-09-16 23:23)
+    ✘ testar instanciar as classes @cancelled(19-09-16 23:23)
   Parser:
     ✔ Criar parser com 1 tipo de delimitador somente @done(19-09-16 00:50)
     ☐ Criar arquivo de config para possibilitar configurar deimilitadores e frequência de busca no diretório
@@ -55,11 +56,13 @@ Todo:
     ✔ Arquivos sem a extensão .dat devem ser ignorados @done(19-09-16 01:02)
     ☐ Tratamento para arquivos que são .dat, mas sem nenhuma row
     ☐ Tratamento de erros para arquivos que não seguirem o padrão de linha formatada
-    ☐ Tratar como único através do ID da venda
+    ☐ Enter entre linhas
+    ✘ Tratar como único através do ID da venda @cancelled(19-09-16 23:53)
         intencionalmento, ou simulando alguma inconsistência no banco de dados, uma venda pode vir com o ID duplicado,
         mas com dados internos diferente... o que fazer nesse caso? remover os ID's duplicados ou
         expor devido a diferença entre os outros dados?
   Finals:
     ✔ typehint @done(19-09-16 16:31)
     ✘ dataclasses @cancelled(19-09-16 16:31)
+    ☐ unittest
     ☐ terminal output colorized

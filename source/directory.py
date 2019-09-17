@@ -17,7 +17,7 @@ def create_outpath() -> Callable:
     return _create_dir(OUTPUT_DIRECTORY)
 
 
-def _create_dir(dir_name: str) -> (str, None):
+def _create_dir(dir_name: str) -> (bool, None):
     path: str = Path.home() / dir_name
 
     if path.exists():

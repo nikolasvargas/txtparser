@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import BinaryIO, List, Set, AnyStr
 
 from directory import INPUT_DIRECTORY, OUTPUT_DIRECTORY
-from parser import parse_data
+from parser import parse_dat_file
 
 
 OUTPUT_PATH: str = Path.home() / OUTPUT_DIRECTORY
@@ -19,7 +19,7 @@ def search_batch_files() -> List[str]:
     """
     Return list with *.dat files found
     """
-    logging.info(f"loading all .dat files in {INPUT_PATH}")
+    logging.info(f"loading all .dat files from {INPUT_PATH}")
     return glob(f"{INPUT_PATH}/*{FILE_EXTENSION}")
 
 
@@ -43,29 +43,31 @@ def process_file():
                 filename = Path(file_handler.name).stem
                 for line in read_large_file(file_handler):
                     dataset.update(r for r in line.splitlines())
-                create_file(filename, parse_data(dataset))
+                create_file(filename, parse_dat_file(dataset))
         except (IOError, OSError) as e:
             logging.ERROR(f"Something is wrong: {e}")
 
 
 def create_file(filename: str, *args: AnyStr):
     """
-    Create a file {filename}.done.dat in OUTPUT_PATH path
-    Write the data, passed by arguments, to the file
+    Create file {filename}.done.dat in OUTPUT_PATH path
+    Data received by argument is written to file
     """
     if not OUTPUT_PATH.exists():
         err_msg: str = f"Path {OUTPUT_PATH} does not exist"
         logging.ERROR(err_msg)
 
     fullpath: str = f"{OUTPUT_PATH}/{filename}.done.dat"
-    (number_of_sellers, number_of_customers, sales) = args[0]
+    (number_of_sellers, number_of_customers, sales, salesman) = args[0]
     most_expensive_sale: int = sorted(sales.items(), key=lambda i: i[1])[-1][0]
+    worst_salesman: str = sorted(salesman.items(), key=lambda i: i[1])[0]
+    (salesman, value) = worst_salesman
 
     template: str = f"""
     Customer in input file: {number_of_sellers}
     Sellers in input file: {number_of_customers}
     Most expensive sale ID: {most_expensive_sale}
-    Worst salesman:
+    Worst salesman: {salesman} (value: {value})
     """
 
     with open(fullpath, 'w') as new_file:
