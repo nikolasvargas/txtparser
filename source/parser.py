@@ -1,10 +1,8 @@
-import logging
 import re
 
 from collections import defaultdict
 from typing import List, Set, Pattern, Tuple
 
-logging.getLogger().setLevel(logging.INFO)
 
 SEPARATOR: str = 'ç'
 SELLER_ID: int = 1
