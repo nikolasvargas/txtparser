@@ -11,9 +11,9 @@ OUTPUT_DIRECTORY: str = 'data/out'
 
 
 def create_inpath():
+    _create_dir(INPUT_DIRECTORY)
     path: str = Path.home() / INPUT_DIRECTORY
     copy2('example.dat', path)
-    _create_dir(INPUT_DIRECTORY)
 
 
 def create_outpath() -> Callable:

@@ -54,4 +54,4 @@ A execução de main.py deve:
 * criar a estrutura de diretórios ~/data/in, ~/data/out
 * inserir o arquivo `example.dat` dentro do diretório de entrada da aplicação.
 * gerar um arquivo `example.done.dat` no arquivo de saída
-* Ficar assistindo modificações dentro do diretórios ~/data/in. Fique a vontade para adicionar novos arquivos.dat enquanto a aplicação roda.
+* monitorar modificações dentro do diretórios ~/data/in. Fique a vontade para adicionar novos arquivos.dat enquanto a aplicação roda.
