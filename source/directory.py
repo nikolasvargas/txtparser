@@ -10,10 +10,14 @@ INPUT_DIRECTORY: str = 'data/in'
 OUTPUT_DIRECTORY: str = 'data/out'
 
 
-def create_inpath():
-    _create_dir(INPUT_DIRECTORY)
+def _copy_example_file():
     path: str = Path.home() / INPUT_DIRECTORY
     copy2('example.dat', path)
+
+
+def create_inpath():
+    _copy_example_file()
+    _create_dir(INPUT_DIRECTORY)
 
 
 def create_outpath() -> Callable:

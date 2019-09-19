@@ -81,3 +81,4 @@ def create_file(filename: str, *args: AnyStr):
     with open(fullpath, 'w') as new_file:
         logging.info(f"creating {fullpath}...")
         new_file.write(str(template))
+        logging.info("Done")
