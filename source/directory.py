@@ -16,8 +16,8 @@ def _copy_example_file():
 
 
 def create_inpath():
-    _copy_example_file()
     _create_dir(INPUT_DIRECTORY)
+    _copy_example_file()
 
 
 def create_outpath() -> Callable:
