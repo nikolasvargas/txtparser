@@ -55,3 +55,10 @@ A execução de main.py deve:
 * inserir o arquivo `example.dat` dentro do diretório de entrada da aplicação.
 * gerar um arquivo `example.done.dat` no arquivo de saída
 * monitorar modificações dentro do diretórios ~/data/in. Fique a vontade para adicionar novos arquivos.dat enquanto a aplicação roda.
+
+### Possíveis melhorias
+  * O coverage deve ser melhorado. Há funções de manipulação de escrita/leitura e lógica de parser que não foram testadas por completo.
+  * O código poderia rodar de forma assincrona e fazendo vários processamentos de arquivos simultaneamente.
+    Isso poderia evitar um futuro gargalo para o caso de um lote de arquivos, todos extremamente grandes, entre na fila de processamento.
+  * O código abre espaço para uma abordagem de codificação mais limpa, usando paradigma funcional. Isso pode ser adicionado como uma feature extra, futuramente
+  * Remover os arquivos do diretório de entrada após processados.
