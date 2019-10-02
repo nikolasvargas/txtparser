@@ -20,15 +20,11 @@ def search_batch_files(filename_list: Optional[List[str]] = []) -> List[str]:
     """
     Return list with *.dat files found
     """
-    if bool(len(filename_list)):
-        # we just want .dat(FILE_EXTENSION) files
-        files: List = [f for f in filename_list if path.splitext(f)[1] == FILE_EXTENSION]
-        are_valid_files: bool = bool(len(files))
+    # we just want .dat(FILE_EXTENSION) files
+    files: List = [f for f in filename_list if path.splitext(f)[1] == FILE_EXTENSION]
+    are_valid_files: bool = bool(len(files))
 
-        if are_valid_files:
-            return [f for f in files]
-
-    return glob(f"{INPUT_PATH}/*{FILE_EXTENSION}")
+    return (f for f in files) if are_valid_files else glob(f"{INPUT_PATH}/*{FILE_EXTENSION}")
 
 
 def read_large_file(file_object: BinaryIO):

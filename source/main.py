@@ -14,6 +14,4 @@ if __name__ == '__main__':
     delete_event: str = 'Change.deleted'
 
     for changes in watch(outpath):
-        for file in changes:
-            if delete_event not in str(file[0]):
-                process_file(file[1])
+        process_file(file[1] for file in changes if delete_event not in str(file[0]))
