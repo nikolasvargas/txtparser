@@ -1,30 +1,24 @@
 import logging
 
 from glob import glob
-from os import path
 from pathlib import Path
 from typing import BinaryIO, List, Set, AnyStr, Optional
 
-from directory import INPUT_DIRECTORY, OUTPUT_DIRECTORY
-from parser import parse_dat_file
+from .directory import INPUT_DIRECTORY, OUTPUT_DIRECTORY
+from .parser import parse_dat_file, accepted_file_extension, FILE_EXTENSION
 
 
 OUTPUT_PATH: str = Path.home() / OUTPUT_DIRECTORY
 INPUT_PATH: str = Path.home() / INPUT_DIRECTORY
-FILE_EXTENSION: str = '.dat'
 
 logging.getLogger().setLevel(logging.INFO)
 
 
 def search_batch_files(filename_list: Optional[List[str]] = []) -> List[str]:
-    """
-    Return list with *.dat files found
-    """
+    """Return list with *.dat files found"""
     # we just want .dat(FILE_EXTENSION) files
-    files: List = [f for f in filename_list if path.splitext(f)[1] == FILE_EXTENSION]
-    are_valid_files: bool = bool(len(files))
-
-    return (f for f in files) if are_valid_files else glob(f"{INPUT_PATH}/*{FILE_EXTENSION}")
+    files: List = filter(accepted_file_extension, [f for f in filename_list])
+    return [f for f in files] or glob(f"{INPUT_PATH}/*{FILE_EXTENSION}")
 
 
 def read_large_file(file_object: BinaryIO):

@@ -1,12 +1,18 @@
 import re
 
 from collections import defaultdict
+from os import path
 from typing import List, Set, Pattern, Tuple
 
 
 SEPARATOR: str = 'ç'
 SELLER_ID: int = 1
 CUSTOMER_ID: int = 2
+FILE_EXTENSION: str = '.dat'
+
+
+def accepted_file_extension(string: str) -> bool:
+    return path.splitext(string)[1] == FILE_EXTENSION
 
 
 def parse_dat_file(dataset: Set) -> Tuple[int, int, dict, dict]:
