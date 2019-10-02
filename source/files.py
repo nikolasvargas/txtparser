@@ -4,8 +4,8 @@ from glob import glob
 from pathlib import Path
 from typing import BinaryIO, List, Set, AnyStr, Optional
 
-from .directory import INPUT_DIRECTORY, OUTPUT_DIRECTORY
-from .parser import parse_dat_file, accepted_file_extension, FILE_EXTENSION
+from directory import INPUT_DIRECTORY, OUTPUT_DIRECTORY
+from parser import parse_dat_file, accepted_file_extension, FILE_EXTENSION
 
 
 OUTPUT_PATH: str = Path.home() / OUTPUT_DIRECTORY
