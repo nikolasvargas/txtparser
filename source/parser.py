@@ -19,9 +19,9 @@ def parse_dat_file(dataset: Set) -> Tuple[int, int, dict, dict]:
     # Slice object for check IDS
     ID: slice = slice(0, 3)
 
-    data, salesman_row = (list(dataset), list())
+    data, salesman_row = ([dataset], [])
     sales: defaultdict = defaultdict(int)
-    number_of_sellers = number_of_customers = int()
+    number_of_sellers = number_of_customers = 0
 
     for row in data:
         line: List = row.split(SEPARATOR)
