@@ -34,9 +34,10 @@ def parse_dat_file(dataset: Set) -> Tuple[int, int, dict, dict]:
             number_of_customers += 1
         else:
             sale_sum: float = get_higher_sales_value(line)
-            salesman_row.append(tuple([seller_name, sale_id, sale_sum]))
+            salesman_row.append([seller_name, sale_id, sale_sum])
             if sale_sum > sales[sale_id]:
                 sales.update({sale_id: sale_sum})
+
     return (
         number_of_sellers,
         number_of_customers,

@@ -46,7 +46,7 @@ def process_file(files: Optional[List[str]] = []):
             logging.ERROR(f"Something is wrong: {e}")
 
 
-def create_file(filename: str, *args: AnyStr):
+def create_file(filename: str, data: tuple):
     """
     Create file {filename}.done.dat in OUTPUT_PATH path
     Data received by argument is written to file
@@ -56,7 +56,7 @@ def create_file(filename: str, *args: AnyStr):
         logging.ERROR(err_msg)
 
     fullpath: str = f"{OUTPUT_PATH}/{filename}.done.dat"
-    (number_of_sellers, number_of_customers, sales, salesman) = args[0]
+    (number_of_sellers, number_of_customers, sales, salesman) = data
     most_expensive_sale: int = sorted(sales.items(), key=lambda i: i[1])[-1][0]
     worst_salesman: str = sorted(salesman.items(), key=lambda i: i[1])[0]
     (salesman, value) = worst_salesman
