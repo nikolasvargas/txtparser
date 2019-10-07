@@ -1,30 +1,38 @@
 from dataclasses import dataclass
+from source.identifier import Identifier
 
 
 @dataclass
-class Salesman:
+class Salesman(Identifier):
     name: str
     cpf: str
     salary: float
+    IDENTIFIER: int = 1
 
     @classmethod
-    def foo(self):
-        return 'foo'
+    def identifier(cls):
+        return cls.IDENTIFIER
 
 
 @dataclass
-class Customer:
+class Customer(Identifier):
     name: str
     cnpj: str
     business_area: str
+    IDENTIFIER: int = 2
 
     @classmethod
-    def bar(cls):
-        return 'bar'
+    def identifier(cls):
+        return cls.IDENTIFIER
 
 
 @dataclass
-class Item:
+class Item(Identifier):
     id: int
     price: float
     quantity: int
+    IDENTIFIER: int = 3
+
+    @classmethod
+    def identifier(cls):
+        return cls.IDENTIFIER

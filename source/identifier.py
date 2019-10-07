@@ -2,6 +2,8 @@ from abc import ABC, abstractmethod
 
 
 class Identifier(ABC):
+
+    @classmethod
     @abstractmethod
-    def get_identifier(self):
+    def identifier(cls):
         pass
